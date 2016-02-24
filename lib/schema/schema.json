@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "#/",
+  "type": "object",
+  "description": "CDIF schema definitions for PayPal REST API",
+  "paypal": {
+    "payment": {
+      "listPaymentArgs": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "maximum": 20,
+            "minimum": 1
+          },
+          "start_id": {
+            "type": "string"
+          },
+          "start_index": {
+            "type": "integer"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          },
+          "sort_by": {
+            "type": "string",
+            "enum": [
+              "create_time",
+              "end_time"
+            ]
+          },
+          "sort_order": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "paymentList": {
+        "type": "object",
+        "properties": {
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "payment.json"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "executePaymentArgs": {
+        "type": "object",
+        "properties": {
+          "payer_id": {
+            "type": "string"
+          },
+          "transactions": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "$ref": "amount.json"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "transactions": {
+        "type": "array",
+        "items": {
+          "$ref": "transaction.json"
+        }
+      },
+      "payer": {
+        "$ref": "payer.json"
+      },
+      "payment": {
+        "$ref": "payment.json"
+      },
+      "redirectUrls": {
+        "$ref": "redirect_urls.json"
+      }
+    }
+  }
+}
