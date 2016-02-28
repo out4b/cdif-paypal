@@ -3,7 +3,7 @@ var events            = require('events');
 var PayPalDevice      = require('./lib/paypal-device')
 
 function PayPalManager() {
-  this.discoverState = 'stopped';  
+  this.discoverState = 'stopped';
 }
 
 util.inherits(PayPalManager, events.EventEmitter);
