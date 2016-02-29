@@ -60,11 +60,9 @@
             "type": "string"
           },
           "transactions": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "$ref": "amount.json"
-              }
+            "type": "array",
+            "items": {
+              "$ref": "amount.json"
             },
             "additionalProperties": false
           }
@@ -89,6 +87,29 @@
       "redirectUrls": {
         "$ref": "redirect_urls.json"
       }
+    },
+    "clientConfig": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "sandbox",
+            "live"
+          ]
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "client_id",
+        "client_secret"
+      ]
     }
   }
 }

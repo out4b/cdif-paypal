@@ -25,7 +25,11 @@
         "actionList": {
           "list": {
             "argumentList": {
-              "options": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
+              "listArgs": {
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_listPaymentArgs"
               },
@@ -38,6 +42,10 @@
           },
           "get": {
             "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
               "paymentID": {
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_paymentID"
@@ -51,6 +59,10 @@
           },
           "execute": {
             "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
               "paymentID": {
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_paymentID"
@@ -68,6 +80,10 @@
           },
           "createWithCard": {
             "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
               "intent": {
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_intent"
@@ -89,6 +105,10 @@
           },
           "createWithPayPal": {
             "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
               "intent": {
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_intent"
@@ -114,6 +134,11 @@
           }
         },
         "serviceStateTable": {
+          "A_ARG_TYPE_clientConfig": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/clientConfig"
+          },
           "A_ARG_TYPE_listPaymentArgs": {
             "sendEvents": false,
             "dataType": "object",
