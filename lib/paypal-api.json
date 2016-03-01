@@ -188,6 +188,140 @@
             "schema": "/paypal/payment/redirectUrls"
           }
         }
+      },
+      "urn:paypal-com:serviceID:payouts": {
+        "serviceType": "urn:paypal-com:service:Payout:1",
+        "actionList": {
+          "create": {
+            "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
+              "sender_batch_header": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_senderBatchHeader"
+              },
+              "sync_mode": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_syncMode"
+              },
+              "items": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_items"
+              },
+              "result": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_createPayoutResult"
+              }
+            }
+          },
+          "getStatus": {
+            "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
+              "payoutID": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_payoutID"
+              },
+              "result": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_getStatusResult"
+              }
+            }
+          },
+          "getItemStatus": {
+            "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
+              "payoutItemID": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_payoutItemID"
+              },
+              "result": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_getItemStatusResult"
+              }
+            }
+          },
+          "cancelItem": {
+            "argumentList": {
+              "config": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_clientConfig"
+              },
+              "payoutItemID": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_payoutItemID"
+              },
+              "result": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_cancelItemResult"
+              }
+            }
+          }
+        },
+        "serviceStateTable": {
+          "A_ARG_TYPE_clientConfig": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/clientConfig"
+          },
+          "A_ARG_TYPE_senderBatchHeader": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/senderBatchHeader"
+          },
+          "A_ARG_TYPE_syncMode": {
+            "sendEvents": false,
+            "dataType": "string",
+            "allowedValueList": [
+              "true",
+              "false"
+            ]
+          },
+          "A_ARG_TYPE_items": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/payoutItems"
+          },
+          "A_ARG_TYPE_createPayoutResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/createPayoutResult"
+          },
+          "A_ARG_TYPE_payoutID": {
+            "sendEvents": false,
+            "dataType": "string"
+          },
+          "A_ARG_TYPE_getStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/getStatusResult"
+          },
+          "A_ARG_TYPE_payoutItemID": {
+            "sendEvents": false,
+            "dataType": "string"
+          },
+          "A_ARG_TYPE_getItemStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/getItemStatusResult"
+          },
+          "A_ARG_TYPE_cancelItemResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payouts/cancelItemResult"
+          }
+        }
       }
     }
   }

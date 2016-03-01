@@ -88,6 +88,43 @@
         "$ref": "redirect_urls.json"
       }
     },
+    "payouts": {
+      "senderBatchHeader": {
+        "type": "object",
+        "properties": {
+          "sender_batch_id": {
+            "type": "string"
+          },
+          "email_subject": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "recipient_type": {
+            "type": "string",
+            "enum": [
+              "EMAIL",
+              "PHONE",
+              "PAYPAL_ID"
+            ]
+          }
+        }
+      },
+      "payoutItems": {
+        "$ref": "payout_item.json"
+      },
+      "createPayoutResult": {
+        "type": "object"
+      },
+      "getStatusResult": {
+        "type": "object"
+      },
+      "getItemStatusResult": {
+        "type": "object"
+      },
+      "cancelItemResult": {
+        "type": "object"
+      }
+    },
     "clientConfig": {
       "type": "object",
       "properties": {
