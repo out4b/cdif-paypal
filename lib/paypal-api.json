@@ -29,7 +29,7 @@
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_listPaymentArgs"
               },
-              "paymentList": {
+              "result": {
                 "direction": "out",
                 "retval": true,
                 "relatedStateVariable": "A_ARG_TYPE_paymentList"
@@ -42,7 +42,7 @@
                 "direction": "in",
                 "relatedStateVariable": "A_ARG_TYPE_paymentID"
               },
-              "payment": {
+              "result": {
                 "direction": "out",
                 "retval": true,
                 "relatedStateVariable": "A_ARG_TYPE_payment"
@@ -57,22 +57,55 @@
               },
               "executeArgs": {
                 "direction": "in",
-                "relatedStateVariable": "A_ARG_TYPE_executePaymentArgs"
+                "relatedStateVariable": "A_ARG_TYPE_executeArgs"
               },
-              "payment": {
+              "result": {
                 "direction": "out",
                 "retval": true,
                 "relatedStateVariable": "A_ARG_TYPE_payment"
               }
             }
           },
-          "create": {
+          "createWithCard": {
             "argumentList": {
-              "createArgs": {
+              "intent": {
                 "direction": "in",
-                "relatedStateVariable": "A_ARG_TYPE_payment"
+                "relatedStateVariable": "A_ARG_TYPE_intent"
               },
-              "createResult": {
+              "payer": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_payer"
+              },
+              "transactions": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_transactions"
+              },
+              "result": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_payment"
+              }
+            }
+          },
+          "createWithPayPal": {
+            "argumentList": {
+              "intent": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_intent"
+              },
+              "payer": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_payer"
+              },
+              "redirect_urls": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_redirectUrls"
+              },
+              "transactions": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_transactions"
+              },
+              "result": {
                 "direction": "out",
                 "retval": true,
                 "relatedStateVariable": "A_ARG_TYPE_payment"
@@ -95,15 +128,39 @@
             "sendEvents": false,
             "dataType": "string"
           },
+          "A_ARG_TYPE_intent": {
+            "sendEvents": false,
+            "dataType": "string",
+            "allowedValueList": [
+              "sale",
+              "authorize",
+              "order"
+            ]
+          },
+          "A_ARG_TYPE_payer": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payment/payer"
+          },
+          "A_ARG_TYPE_transactions": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payment/transactions"
+          },
           "A_ARG_TYPE_payment": {
             "sendEvents": false,
             "dataType": "object",
             "schema": "/paypal/payment/payment"
           },
-          "A_ARG_TYPE_executePaymentArgs": {
+          "A_ARG_TYPE_executeArgs": {
             "sendEvents": false,
             "dataType": "object",
             "schema": "/paypal/payment/executePaymentArgs"
+          },
+          "A_ARG_TYPE_redirectUrls": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/paypal/payment/redirectUrls"
           }
         }
       }
