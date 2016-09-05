@@ -1,6 +1,6 @@
 {
   "name": "cdif-paypal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Paypal support for common device interconnect framework ",
   "main": "index.js",
   "scripts": {
