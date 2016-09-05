@@ -1,40 +1,24 @@
 var util              = require('util');
 var events            = require('events');
-var CdifDevice        = require('cdif-device');
+var PayPalDevice      = require('./lib/paypal-device')
 
-function PayPalDevice() {
-  var spec = {};
-  CdifDevice.call(this, spec);
-
-  this.discoverState = 'stopped';
+function PayPalManager() {
+  this.discoverState = 'stopped';  
 }
 
-util.inherits(PayPalDevice, CdifDevice);
+util.inherits(PayPalManager, events.EventEmitter);
 
-PayPalDevice.prototype._connect = function(callback) {
-  callback(null, null);
-};
-
-PayPalDevice.prototype._disconnect = function(callback) {
-  callback(null);
-};
-
-PayPalDevice.prototype._getHWAddress = function(callback) {
-  callback(null, 'paypal');
-};
-
-PayPalDevice.prototype.discoverDevices = function() {
+PayPalManager.prototype.discoverDevices = function() {
   if (this.discoverState === 'discovering') {
     return;
   }
 
-  this.emit('deviceonline', this, this);
+  this.emit('deviceonline', new PayPalDevice(), this);
   this.discoverState = 'discovering';
 };
 
-PayPalDevice.prototype.stopDiscoverDevices = function() {
+PayPalManager.prototype.stopDiscoverDevices = function() {
   this.discoverState = 'stopped';
 };
 
-
-module.exports = PayPalDevice;
+module.exports = PayPalManager;
