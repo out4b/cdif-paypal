@@ -1,0 +1,27 @@
+{
+  "name": "cdif-paypal",
+  "version": "0.0.1",
+  "description": "Paypal support for common device interconnect framework ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paypal",
+    "cdif"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/out4b/cdif-paypal.git"
+  },
+  "author": "out4b",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/out4b/cdif-paypal/issues"
+  },
+  "homepage": "https://github.com/out4b/cdif-paypal",
+  "dependencies": {
+    "paypal-rest-sdk": "^1.6.8"
+  },
+  "devDependencies": {}
+}
