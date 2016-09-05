@@ -11,7 +11,7 @@
           "count": {
             "type": "integer",
             "maximum": 20,
-            "minimum": 1
+            "minimum": 0
           },
           "start_id": {
             "type": "string"
@@ -51,8 +51,7 @@
               "$ref": "payment.json"
             }
           }
-        },
-        "additionalProperties": false
+        }
       },
       "executePaymentArgs": {
         "type": "object",
