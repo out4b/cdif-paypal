@@ -70,6 +70,9 @@
             "additionalProperties": false
           }
         },
+        "required": [
+          "payer_id"
+        ],
         "additionalProperties": false
       },
       "transactions": {
