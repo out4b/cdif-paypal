@@ -8,8 +8,7 @@
       "type": "string",
       "enum": [
         "INSTANT_FUNDING_SOURCE"
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }
