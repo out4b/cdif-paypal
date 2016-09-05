@@ -39,7 +39,9 @@ To send a payout:
 curl -H "Content-Type: application/json" -X POST -d '{"serviceID": "urn:paypal-com:serviceID:payouts","actionName":"create", "argumentList":{"config":{"mode":"sandbox","client_id":"client_id","client_secret":"client_secret"}, "sender_batch_header":{"sender_batch_id":"12332171","email_subject":"Youve got a payment"},"items":[{"recipient_type": "EMAIL","amount":{"value": 9.0,"currency": "USD"},"receiver":"sandbox-receiver@mail.com","note":"Thank you","sender_item_id": "item_3"}], "sync_mode":"true","result":{}}}' http://localhost:3049/device-control/9d0b29bd-b25f-4632-9a1a-d62e85d3ad4f/invoke-action
 ```
 
-CDIF's client web app making above PayPal payment calls through CDIF's REST interface may acting itself as PayPal merchants.
+When received a specific event notification from CDIF or other sources, PayPal merchants may invoke these interfaces to create payment for buyers or issue payouts without need to integrate PayPal SDK in their apps.
+
+Many of the schema files are copied and updated from [PHP PayPal Client](https://github.com/p16/paypal-rest-api-client). Thanks!
 
 See following links for more details:
 
